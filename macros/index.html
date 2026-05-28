@@ -872,10 +872,10 @@
   }
 }
 
-  /* ===== ENTER TO CALCULATE ===== */
+  /* ===== AUTO-CALCULATE ON INPUT ===== */
   ['kcal', 'weight'].forEach(id => {
     const el = document.getElementById(id);
-    if (el) el.addEventListener('keydown', e => { if (e.key === 'Enter') calculate(); });
+    if (el) el.addEventListener('input', calculate);
   });
 
   /* ===== SCROLL REVEAL ===== */

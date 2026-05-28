@@ -895,11 +895,9 @@
     });
   });
 
-  /* ===== ENTER TO CALCULATE ===== */
+  /* ===== AUTO-CALCULATE ON INPUT ===== */
   ['weight','height','age'].forEach(id => {
-    document.getElementById(id).addEventListener('keydown', e => {
-      if (e.key === 'Enter') calculate();
-    });
+    document.getElementById(id).addEventListener('input', calculate);
   });
 
   /* ===== SCROLL REVEAL ===== */
