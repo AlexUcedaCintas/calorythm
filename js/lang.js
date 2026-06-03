@@ -1,6 +1,12 @@
 /* lang.js — EN/ES language toggle for all pages */
 (function () {
-  var lang = localStorage.getItem('lang') || 'es';
+  /* Default to the language declared in <html data-lang|lang> so a fresh visitor
+     (and Googlebot, which has no localStorage) sees the page in its own language:
+     EN pages render English by default, ES pages Spanish. A stored user
+     preference still wins on later visits. */
+  var docEl = document.documentElement;
+  var docLang = (docEl.getAttribute('data-lang') === 'en' || docEl.getAttribute('lang') === 'en') ? 'en' : 'es';
+  var lang = localStorage.getItem('lang') || docLang;
 
   function apply(l) {
     lang = l;
